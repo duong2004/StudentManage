@@ -1,0 +1,42 @@
+﻿@model IEnumerable<StudentManage.ViewModels.GetAllStudents>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách sinh viên trường Đời</h2>
+<a class="btn btn-success" href="@Url.Action("Create","Student")">Thêm sinh viên</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>MSSV</th>
+            <th>Ho</th>
+            <th>Ten</th>
+            <th>Khoa</th>
+            <th>Nam vao</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() >= 0)
+        {
+            foreach (var stu in Model)
+            {
+                <tr>
+                    <td>@stu.Mssv</td>
+                    <td>@stu.FirstName</td>
+                    <td>@stu.LastName</td>
+                    <td>@stu.Khoa_Name</td>
+                    <td>@stu.YearJoin</td>
+                    <td>
+                        <button class="btn btn-info">Edit</button>
+                        <button class="btn btn-warning">Detail</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
